@@ -9,8 +9,10 @@ use App\Models\File;
 class FileController extends Controller
 {
     public function index() {
+        dd(File::all()->first());
         return view('file');
     }
+
     public function store(Request $request) {
 
         $file = $request->file;
