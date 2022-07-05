@@ -10,24 +10,26 @@
 </head>
 
 <body>
-    {{-- ex using component x-component_name --}}
-    @if (Session::has('success'))
+    
+    <?php if(Session::has('success')): ?>
         <div>
-            {{ session()->get('success') }}
+            <?php echo e(session()->get('success')); ?>
+
         </div>
-    @endif
-    @if (Session::has('error'))
+    <?php endif; ?>
+    <?php if(Session::has('error')): ?>
         <div>
-            {{ session()->get('error') }}
+            <?php echo e(session()->get('error')); ?>
+
         </div>
-    @endif
+    <?php endif; ?>
 
     <div class="py-12">
         <div class="max-w-5xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <form action="{{ route('file.store') }}" enctype="multipart/form-data" method="POST">
-                        @csrf
+                    <form action="<?php echo e(route('file.store')); ?>" enctype="multipart/form-data" method="POST">
+                        <?php echo csrf_field(); ?>
                         <div class="mb-2"> <span>Attachments</span>
                             <div
                                 class="relative h-40 rounded-lg border-dashed border-2 border-gray-200 bg-white flex justify-center items-center hover:cursor-pointer">
@@ -59,3 +61,4 @@
 </body>
 
 </html>
+<?php /**PATH C:\Users\maart\OneDrive\Documents\projects\psychic-octo-guacamole\resources\views/file.blade.php ENDPATH**/ ?>
